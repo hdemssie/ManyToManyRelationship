@@ -1,0 +1,12 @@
+﻿<h1>Add a Movie</h1>
+<form ng-submit="controller.save()">
+    <div>
+        <label>Title</label>
+        <input placeholder="title" ng-model="controller.productList.title" />
+    </div>
+    <div>
+        <label>Director</label>
+        <input id="director" placeholder="Movie director" ng-model="controller.productList.director" />
+    </div>
+    <input type="submit" class="btn btn-primary" value="Add Movie" />
+</form>

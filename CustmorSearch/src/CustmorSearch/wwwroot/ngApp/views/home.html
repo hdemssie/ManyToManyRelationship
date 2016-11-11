@@ -1,0 +1,11 @@
+<h2>Movies Directed by Lucas</h2>
+<lable>Search</lable>
+<input type="text"placeholder="Search by Director"ng-model="input" />
+<button type="button" class="btn btn-primary" ng-click="controller.searchMovies(input)"> Search </button>
+    <ul>
+    <li ng-repeat="movie in controller.movies">
+
+    {{movie.title}}
+
+    </li>
+</ul>
