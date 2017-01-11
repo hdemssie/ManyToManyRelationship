@@ -1,4 +1,19 @@
 <h2>Home</h2>
-<p>
-    {{controller.message}}
-</p>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Director</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr ng-repeat="movie in controller.movies">
+            <td>{{movie.title}}</td>
+            <td>{{movie.director}}</td>
+            <td><a ng-href="/editMovie/{{movie.id}}" class="btn btn-primary"> Edit</a></td>
+            <td><a ng-href="/addActorToMovie/{{movie.id}}" class="btn btn-primary">addActorToMovie</a></td>
+        </tr>
+    </tbody>
+</table>
+<a ui-sref="addMovie" class="btn btn-success"> Add Movie </a>

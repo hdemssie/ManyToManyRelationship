@@ -12,9 +12,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using MovieCurd.Data;
-using MovieCurd.Models;
+using MovieCurd.Repository;
 using MovieCurd.Services;
-
+using MovieCurd.Interface;
 
 namespace MovieCurd
 {
@@ -53,10 +53,16 @@ namespace MovieCurd
             services.AddMvc();
 
             // Add application services.
+           
+            
             services.AddTransient<IEmailSender, AuthMessageSender>();
             services.AddTransient<ISmsSender, AuthMessageSender>();
-            
+            services.AddScoped<IMovieService, MovieService>();
 
+            //Add Scoped application services
+
+            services.AddScoped<IGenericRepository, GenericRepository>();
+           // services.AddScoped<ImovieRepository, movieRepository>();
             
         }
 

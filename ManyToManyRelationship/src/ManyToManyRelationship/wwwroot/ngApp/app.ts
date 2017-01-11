@@ -16,7 +16,7 @@ namespace ManyToManyRelationship {
             .state(`addActorToMovie`, {
 
                 url: `/addActorToMovie/:id`,
-                templateUrl: `/ngApp/views/addActorTOMovie.html`,
+                templateUrl: `/ngApp/views/addActorToMovie.html`,
                 controller: ManyToManyRelationship.Controllers.AddActorToMovieController,
                 controllerAs: `controller`
             })
@@ -24,6 +24,12 @@ namespace ManyToManyRelationship {
                 url: '/about',
                 templateUrl: '/ngApp/views/about.html',
                 controller: ManyToManyRelationship.Controllers.AboutController,
+                controllerAs: 'controller'
+            })
+            .state('addMovie', {
+                url: '/about',
+                templateUrl: '/ngApp/views/addMovie.html',
+                controller: ManyToManyRelationship.Controllers.AddMovieController,
                 controllerAs: 'controller'
             })
             .state('notFound', {

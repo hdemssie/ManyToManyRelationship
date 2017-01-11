@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using MovieCurd.Models;
+using MovieCurd.Repository;
 
 namespace MovieCurd.Data
 {
@@ -14,6 +14,8 @@ namespace MovieCurd.Data
             : base(options)
         {
         }
+
+        //public DbSet<Movie> Movies { get; set; }
         public DbSet<Movie> Movies { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {

@@ -22,12 +22,12 @@ namespace ManyToManyRelationship.Controllers {
         public actor;
 
         public getMovie(id: number) {
-            this.MovieResource.get({ id: id })
+            this.MovieResource.get({ id: id });
             }
 
         public addActorToMovie() {
-            this.MovieResource.save({ id: this.MovieResource.id }, this.actor).$promis.then(() => {
-
+            this.MovieResource.save({ id: this.MovieResource.id }, this.actor).$promise.then(() => {
+                console.log(this.actor);
                 this.movie = null;
                 this.actor = null;
                 this.$state.go(`home`);
@@ -36,10 +36,10 @@ namespace ManyToManyRelationship.Controllers {
                 
        
         constructor(private $resource: angular.resource.IResourceService,
-            private $stateParms: ng.ui.IStateParamsService, 
+            private $stateParams: ng.ui.IStateParamsService, 
             private $state: ng.ui.IStateService) {
             this.MovieResource = $resource("/api/movies/:id");
-            this.movie = this.getMovie($stateParms[`id`]);
+            this.movie = this.getMovie($stateParams[`id`]);
         }
    
     }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using ManyToManyRelationship.Data;
 using ManyToManyRelationship.Models;
+using System.Collections;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,8 +17,21 @@ namespace ManyToManyRelationship.Controllers
         private ApplicationDbContext _db;
         public MoviesController(ApplicationDbContext db)
         {
-            this._db = db;
+            _db = db;
         }
+        //Get a list of all movies
+        [HttpGet]
+        public IEnumerable<Movie> Get()
+        {
+            return _db.Movies.ToList();
+        }
+        [HttpGet("{id}")]
+        public Movie Get(int id)
+        {
+            return _db.Movies.Where(m => m.Id == id).FirstOrDefault();
+            
+        }
+
         //Post to /api/movies
         [HttpPost("{id}")]
 
